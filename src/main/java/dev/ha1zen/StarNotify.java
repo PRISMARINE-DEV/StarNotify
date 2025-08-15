@@ -58,6 +58,7 @@ public class StarNotify extends JavaPlugin implements Listener, CommandExecutor,
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
+        event.setJoinMessage(null);
         Player player = event.getPlayer();
         if (playerNotifications.getOrDefault(player.getName(), true)) {
             String[] messages = playerMessages.getOrDefault(player.getName(), new String[]{"§a[+] §f" + player.getName(), "§c[-] §f" + player.getName()});
@@ -67,6 +68,7 @@ public class StarNotify extends JavaPlugin implements Listener, CommandExecutor,
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
+        event.setQuitMessage(null);
         Player player = event.getPlayer();
         if (playerNotifications.getOrDefault(player.getName(), true)) {
             String[] messages = playerMessages.getOrDefault(player.getName(), new String[]{"§a[+] §f" + player.getName(), "§c[-] §f" + player.getName()});
